@@ -1,9 +1,11 @@
-__Spring加载properties可以大致分为两种方式：环境变量，包装类__
-
-## 一、环境变量
+## 一、PropertyPlaceholderConfigurer
 加载方式:
 ``` xml
 <context:property-placeholder location="classpath:xxx.properties"/>
+<!-- 需要添加context的声明 -->
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation=
+“http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd”
 ```
 或
 ``` xml
@@ -19,7 +21,9 @@ __Spring加载properties可以大致分为两种方式：环境变量，包装�
 这种方式下，可以用 **${key}** 读取，或者在字段上使用 **@Value** 读取
 
 
-## 二、包装类
+
+
+## 二、PropertiesFactoryBean
 加载方式：
 ``` xml
 <util:properties id="prop" location="classpath:xxx.properties"/>
@@ -39,3 +43,20 @@ xsi:schemaLocation="http://www.springframework.org/schema/util http://www.spring
 </bean>
 ```
 这种方式下，可以用 **#{prop['key']}** 读取
+
+
+
+## 三、@PropertySource
+
+加载方式：
+
+```java
+@Configuration
+@PropertySource("classpath:my.properties")
+public class MyConfig {
+
+}
+```
+
+使用方式：在字段上使用 **@Value** 读取，通过`Environment#getProperty`获取
+
