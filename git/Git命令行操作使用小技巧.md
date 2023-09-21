@@ -1,6 +1,6 @@
-### 自定义命令别名
+### 1. 自定义命令别名
 
-git所有自定义别名都存储在`.gitconfig`文件中，添加方式有两种：
+git 所有自定义别名都存储在`.gitconfig`文件中，添加方式有两种：
 
 * 编辑`.gitconfig`，添加如下内容
 
@@ -13,7 +13,9 @@ git所有自定义别名都存储在`.gitconfig`文件中，添加方式有两�
 
 ---
 
-### 关联远程分支
+
+
+### 2. 关联远程分支
 
 本地分支名：test；远程分支名：remote-test
 
@@ -36,8 +38,22 @@ git所有自定义别名都存储在`.gitconfig`文件中，添加方式有两�
 
 ---
 
-### 清理过期分支
 
-`git remote show origin`查看所有分支的情况
 
-`git remote prune origin`清理过期分支
+### 3. 清理过期分支
+
+`git remote show origin` 查看所有分支的情况
+
+`git remote prune origin` 清理过期分支
+
+---
+
+
+
+### 4. 修改项目用户信息
+
+机器上同时有 Github 项目和公司项目时，可以将公司账号当做全局配置，Github 项目的账号在应用中单独配置：
+
+`git config user.name xxx`
+
+`git config user.email xxx@xx.com`
